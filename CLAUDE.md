@@ -26,6 +26,7 @@ real process. Haven't made it yet and not pretending I have.
 
 ## Contact
 partnerships@christianbrooks.co
+(Namecheap forwarder - receives only, forwards to personal Gmail)
 
 ## Tone rules
 - No urgency language
