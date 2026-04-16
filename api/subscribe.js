@@ -42,7 +42,15 @@ export default async function handler(req, res) {
     await sql`
       INSERT INTO subscribers (name, email, source)
       VALUES (${name.trim()}, ${email.trim().toLowerCase()}, ${sourceTag})
-      ON CONFLICT (email) DO NOTHING
+      ON CONFLICT (email) DO UPDATE SET
+        name = EXCLUDED.name,
+        source = CASE
+          WHEN subscribers.source IS NULL OR subscribers.source = ''
+            THEN EXCLUDED.source
+          WHEN position(EXCLUDED.source IN subscribers.source) > 0
+            THEN subscribers.source
+          ELSE subscribers.source || ',' || EXCLUDED.source
+        END
     `
 
     return res.status(200).end(JSON.stringify({ success: true }))
