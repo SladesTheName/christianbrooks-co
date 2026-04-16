@@ -156,8 +156,8 @@ function IntroScreen({ onStart }) {
     <div className="sc-screen">
       <h3 className="sc-intro-heading">Find Your Starting Point</h3>
       <p className="sc-intro-body">
-        Five quick questions. No email required.
-        Honest answers only. This only works if you mean it.
+        Five quick questions. Honest answers only. This only works if you mean it.
+        Get your score and a personalized breakdown sent straight to your inbox.
       </p>
       <button className="btn btn-gold sc-cta-btn" onClick={onStart}>
         Start the Assessment

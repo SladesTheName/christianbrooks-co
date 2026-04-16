@@ -9,7 +9,10 @@ export default async function handler(req, res) {
     }
 
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : (req.body ?? {})
-    const { name, email } = body
+    const { name, email, source } = body
+    const sourceTag = typeof source === 'string' && source.trim().length > 0
+      ? source.trim().slice(0, 64)
+      : 'scorecard'
 
     if (!name || typeof name !== 'string' || name.trim().length === 0) {
       return res.status(400).end(JSON.stringify({ error: 'Name is required.' }))
@@ -37,8 +40,8 @@ export default async function handler(req, res) {
     `
 
     await sql`
-      INSERT INTO subscribers (name, email)
-      VALUES (${name.trim()}, ${email.trim().toLowerCase()})
+      INSERT INTO subscribers (name, email, source)
+      VALUES (${name.trim()}, ${email.trim().toLowerCase()}, ${sourceTag})
       ON CONFLICT (email) DO NOTHING
     `
 
