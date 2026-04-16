@@ -273,7 +273,7 @@ function Resources() {
             </p>
             <a
               className="btn btn-gold resource-cta"
-              href="https://christianbrooks.gumroad.com/l/audience-ignition"
+              href="https://christianbrooks.gumroad.com/l/itdnrm"
               target="_blank"
               rel="noopener noreferrer"
             >
