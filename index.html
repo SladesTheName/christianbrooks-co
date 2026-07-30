@@ -1,17 +1,463 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Christian Brooks - Husband. Father. Follower of Jesus. Documenting the real process of building digital income on the side." />
-    <title>Christian Brooks</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christian Brooks | Creator of @everycorporatever</title>
+<meta name="description" content="Christian Brooks built @everycorporatever to 67K+ followers and 47.6M+ views in 90 days. Available for UGC, brand integrations, and full-time content roles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1C2620;
+    --paper:#F6F5F1;
+    --green:#2C4A36;
+    --rule:#1C2620;
+    --faint:#5A665E;
+    --hl:#F6C445;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Public Sans',system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.65;
+  }
+  ::selection{background:var(--hl)}
+  a{color:var(--green)}
+  a:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+  mark{background:var(--hl);padding:0 5px}
+  .mono{font-family:'IBM Plex Mono',monospace}
+
+  .page{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    border-bottom:1px solid var(--rule);
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em;
+    display:flex;justify-content:space-between;gap:16px;
+    padding:12px 0;text-transform:uppercase;color:var(--faint);
+  }
+  .topbar a{color:var(--ink);text-decoration:none}
+  .topbar a:hover{background:var(--hl)}
+  .topbar .doc-no{display:none}
+  @media(min-width:640px){.topbar .doc-no{display:block}}
+
+  /* ---------- Document header ---------- */
+  .doc-head{padding:44px 0 0}
+  .filing{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:2.1;
+    border-top:1px solid var(--rule);
+  }
+  .filing .row{
+    display:flex;gap:12px;border-bottom:1px solid var(--rule);padding:6px 0;
+    flex-wrap:wrap;
+  }
+  .filing .k{color:var(--faint);min-width:130px;text-transform:uppercase;letter-spacing:.04em;font-size:11px;padding-top:2px}
+  .filing .v{font-weight:500}
+
+  h1{
+    font-family:'Archivo',sans-serif;font-weight:800;
+    font-size:clamp(42px,7.5vw,84px);line-height:.98;letter-spacing:-.03em;
+    text-transform:uppercase;
+    margin:48px 0 0;
+  }
+  h1 .l2{color:var(--green)}
+  .lede{max-width:620px;margin:30px 0 0;font-size:18px}
+
+  /* ---------- Leader-dot summary ---------- */
+  .ledger{
+    margin:44px 0 0;border-top:1px solid var(--rule);
+    font-family:'IBM Plex Mono',monospace;font-size:14px;
+  }
+  .ledger .li{
+    display:flex;align-items:baseline;gap:10px;
+    border-bottom:1px solid var(--rule);padding:13px 0;
+  }
+  .ledger .label{white-space:nowrap;color:var(--faint);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+  .ledger .dots{flex:1;border-bottom:1px dotted #9AA69E;transform:translateY(-4px)}
+  .ledger .val{
+    font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(20px,3vw,30px);
+    letter-spacing:-.01em;white-space:nowrap;
+  }
+
+  .cta-row{display:flex;gap:12px;margin:36px 0 0;flex-wrap:wrap}
+  .btn{
+    display:inline-block;text-decoration:none;font-weight:600;font-size:15px;
+    font-family:'IBM Plex Mono',monospace;letter-spacing:.02em;
+    padding:13px 22px;border:1px solid var(--ink);color:var(--ink);background:transparent;
+  }
+  .btn:hover{background:var(--hl);border-color:var(--ink)}
+  .btn.primary{background:var(--green);color:#fff;border-color:var(--green)}
+  .btn.primary:hover{background:var(--ink);border-color:var(--ink)}
+
+  /* ---------- Sections ---------- */
+  section{margin-top:96px}
+  .sec-head{
+    display:flex;align-items:baseline;gap:18px;
+    border-top:3px solid var(--rule);padding-top:14px;margin-bottom:8px;
+  }
+  .sec-no{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;
+    color:var(--faint);text-transform:uppercase;white-space:nowrap;
+  }
+  h2{
+    font-family:'Archivo',sans-serif;font-weight:800;text-transform:uppercase;
+    font-size:clamp(24px,3.6vw,36px);letter-spacing:-.015em;
+  }
+  .sec-note{max-width:620px;color:#3A463E;margin:10px 0 36px}
+
+  /* ---------- Exhibits (videos) ---------- */
+  .exhibits{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--rule)}
+  @media(max-width:860px){.exhibits{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.exhibits{grid-template-columns:1fr}}
+  .ex{
+    border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);
+    display:flex;flex-direction:column;background:var(--paper);
+  }
+  .exhibits .ex:nth-child(3n){border-right:0}
+  @media(max-width:860px){
+    .exhibits .ex:nth-child(3n){border-right:1px solid var(--rule)}
+    .exhibits .ex:nth-child(2n){border-right:0}
+  }
+  @media(max-width:560px){.exhibits .ex{border-right:0!important}}
+  .ex .id{
+    display:flex;justify-content:space-between;align-items:baseline;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.05em;
+    text-transform:uppercase;padding:10px 14px;border-bottom:1px solid var(--rule);
+    color:var(--faint);
+  }
+  .ex .id .views{
+    font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;
+    color:var(--ink);letter-spacing:0;
+  }
+  .ex .frame{position:relative;width:100%;aspect-ratio:9/16;background:#E9E8E2}
+  .ex iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .ex .cap{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--faint);
+    padding:8px 14px;border-top:1px solid var(--rule);text-transform:uppercase;letter-spacing:.05em;
+    display:flex;justify-content:space-between;
+  }
+  .ex .cap .sp{background:var(--hl);color:var(--ink);padding:0 6px;font-weight:600}
+
+  /* ---------- Deel narrative ---------- */
+  .deel-copy{max-width:640px;margin-bottom:36px}
+  .deel-copy p{margin-bottom:16px;color:#3A463E}
+  .deel-copy p strong{color:var(--ink)}
+  .deel-grid{display:grid;grid-template-columns:repeat(2,minmax(0,340px));gap:0;border:1px solid var(--rule);width:fit-content}
+  @media(max-width:720px){.deel-grid{grid-template-columns:1fr;width:100%}}
+  .deel-grid .ex:last-child{border-right:0;border-bottom:0}
+  .deel-grid .ex:first-child{border-bottom:0}
+  @media(max-width:720px){.deel-grid .ex:first-child{border-bottom:1px solid var(--rule)}}
+
+  /* ---------- Scope tables ---------- */
+  .scope{border:1px solid var(--rule)}
+  .scope-row{display:grid;grid-template-columns:1fr 1fr}
+  @media(max-width:760px){.scope-row{grid-template-columns:1fr}}
+  .scope-col{padding:28px 28px 32px;border-right:1px solid var(--rule)}
+  .scope-col:last-child{border-right:0}
+  @media(max-width:760px){
+    .scope-col{border-right:0;border-bottom:1px solid var(--rule)}
+    .scope-col:last-child{border-bottom:0}
+  }
+  .scope-col h3{
+    font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;
+    text-transform:uppercase;letter-spacing:-.01em;
+  }
+  .scope-col .aud{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.05em;
+    color:var(--green);text-transform:uppercase;margin:4px 0 18px;
+  }
+  .scope-col ol{list-style:none;counter-reset:item}
+  .scope-col ol li{
+    counter-increment:item;
+    padding:9px 0 9px 34px;position:relative;color:#3A463E;
+    border-top:1px dotted #9AA69E;font-size:15.5px;
+  }
+  .scope-col ol li::before{
+    content:counter(item,decimal-leading-zero);
+    position:absolute;left:0;top:11px;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--faint);
+  }
+
+  /* ---------- Personnel file ---------- */
+  .file{display:grid;grid-template-columns:280px 1fr;gap:40px;align-items:start}
+  @media(max-width:760px){.file{grid-template-columns:1fr}}
+  .photo{
+    aspect-ratio:4/5;border:1px solid var(--rule);background:#E9E8E2;
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--faint);
+    padding:20px;text-transform:uppercase;letter-spacing:.05em;line-height:1.9;
+  }
+  .bio p{margin-bottom:16px;color:#3A463E}
+  .bio p:first-child{font-size:19px;color:var(--ink)}
+  .bio .facts{
+    margin-top:26px;font-family:'IBM Plex Mono',monospace;font-size:13px;
+    border-top:1px solid var(--rule);
+  }
+  .bio .facts div{
+    border-bottom:1px solid var(--rule);padding:8px 0;display:flex;gap:14px;flex-wrap:wrap;
+  }
+  .bio .facts b{
+    font-weight:400;color:var(--faint);min-width:150px;font-size:11px;
+    text-transform:uppercase;letter-spacing:.04em;padding-top:2px;
+  }
+
+  /* ---------- Contact form styling ---------- */
+  .routing{border:1px solid var(--rule)}
+  .route{
+    display:flex;align-items:flex-start;gap:18px;padding:26px 28px;
+    border-bottom:1px solid var(--rule);flex-wrap:wrap;
+  }
+  .route:last-child{border-bottom:0}
+  .route .box{
+    font-family:'IBM Plex Mono',monospace;font-size:18px;line-height:1;
+    border:1px solid var(--ink);width:26px;height:26px;flex:none;
+    display:flex;align-items:center;justify-content:center;margin-top:3px;
+    background:var(--hl);font-weight:600;
+  }
+  .route .body{flex:1;min-width:240px}
+  .route h3{
+    font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;
+    text-transform:uppercase;letter-spacing:-.01em;margin-bottom:4px;
+  }
+  .route p{color:#3A463E;font-size:15.5px;margin-bottom:14px;max-width:520px}
+  .route .btn{padding:10px 18px;font-size:14px}
+  .route .btn + .btn{margin-left:8px}
+
+  /* ---------- Footer ---------- */
+  footer{margin-top:96px;padding-bottom:60px}
+  .endrule{
+    display:flex;align-items:center;gap:16px;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;
+    color:var(--faint);text-transform:uppercase;
+  }
+  .endrule::before,.endrule::after{content:"";flex:1;border-top:1px solid var(--rule)}
+  .foot-links{
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+    margin-top:20px;font-family:'IBM Plex Mono',monospace;font-size:11px;
+    letter-spacing:.05em;text-transform:uppercase;color:var(--faint);
+  }
+  .foot-links a{color:var(--ink);text-decoration:none}
+  .foot-links a:hover{background:var(--hl)}
+  .foot-links .set{display:flex;gap:20px}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="topbar">
+    <span><a href="#top">CHRISTIANBROOKS.CO</a></span>
+    <span class="doc-no">DOC NO. CB-2026-001</span>
+    <span><a href="#routing">CONTACT &darr;</a></span>
+  </div>
+
+  <header class="doc-head" id="top">
+    <div class="filing" role="presentation">
+      <div class="row"><span class="k">Subject</span><span class="v">BROOKS, CHRISTIAN &middot; Creator of @everycorporatever</span></div>
+      <div class="row"><span class="k">Prepared for</span><span class="v">Hiring managers &amp; brand partners</span></div>
+      <div class="row"><span class="k">Status</span><span class="v"><mark>OPEN TO WORK</mark> &middot; UGC, integrations, full-time roles</span></div>
+    </div>
+
+    <h1>Corporate satire.<br><span class="l2">Corporate results.</span></h1>
+
+    <p class="lede">I started @everycorporatever from zero in April 2026. Ninety days later it had 67,000 followers and 47.6 million views across Instagram, TikTok, and YouTube Shorts. Brands hire me to put their product inside content people actually want to watch. Teams hire me to build that same engine in-house.</p>
+
+    <div class="ledger">
+      <div class="li"><span class="label">Views, first 90 days</span><span class="dots"></span><span class="val">47,600,000+</span></div>
+      <div class="li"><span class="label">Followers, from zero</span><span class="dots"></span><span class="val">67,000+</span></div>
+      <div class="li"><span class="label">Videos over 1M views</span><span class="dots"></span><span class="val">9</span></div>
+      <div class="li"><span class="label">Team, agency, ad spend</span><span class="dots"></span><span class="val">0</span></div>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn primary" href="#routing">WORK WITH ME</a>
+      <a class="btn" href="#routing">HIRE ME FULL-TIME</a>
+    </div>
+  </header>
+
+  <section id="work">
+    <div class="sec-head">
+      <span class="sec-no">SEC. 01</span>
+      <h2>Exhibits</h2>
+    </div>
+    <p class="sec-note">Nine videos, every one over a million views. Deadpan delivery, skip cuts, no winking at the camera. The format is the product.</p>
+
+    <div class="exhibits">
+      <div class="ex">
+        <div class="id"><span>Exhibit A</span><span class="views">6.6M</span></div>
+        <div class="frame"><iframe loading="lazy" src="https://www.instagram.com/p/DX75PIsADvP/embed/" title="Exhibit A: Instagram video, 6.6M views" allowfullscreen></iframe></div>
+        <div class="cap"><span>Instagram</span><span>Organic</span></div>
+      </div>
+      <div class="ex">
+        <div class="id"><span>Exhibit B</span><span class="views">3.4M</span></div>
+        <div class="frame"><iframe loading="lazy" src="https://www.instagram.com/reel/DYZs3vGFB4b/embed/" title="Exhibit B: Instagram reel, 3.4M views" allowfullscreen></iframe></div>
+        <div class="cap"><span>Instagram</span><span>Organic</span></div>
+      </div>
+      <div class="ex">
+        <div class="id"><span>Exhibit C</span><span class="views">2.8M</span></div>
+        <div class="frame"><iframe loading="lazy" src="https://www.instagram.com/reel/DWwzmx4AaSX/embed/" title="Exhibit C: Instagram reel, 2.8M views" allowfullscreen></iframe></div>
+        <div class="cap"><span>Instagram</span><span>Organic</span></div>
+      </div>
+      <div class="ex">
+        <div class="id"><span>Exhibit D</span><span class="views">2.7M</span></div>
+        <div class="frame"><iframe loading="lazy" src="https://www.instagram.com/reel/DaOqAGsA2Oy/embed/" title="Exhibit D: Instagram reel, 2.7M views" allowfullscreen></iframe></div>
+        <div class="cap"><span>Instagram</span><span>Organic</span></div>
+      </div>
+      <div class="ex">
+        <div class="id"><span>Exhibit E</span><span class="views">2.2M</span></div>
+        <div class="frame"><iframe loading="lazy" src="https://www.instagram.com/reel/DYN9Um1jind/embed/" title="Exhibit E: Instagram reel, 2.2M views" allowfullscreen></iframe></div>
+        <div class="cap"><span>Instagram</span><span>Organic</span></div>
+      </div>
+      <div class="ex">
+        <div class="id"><span>Exhibit F</span><span class="views">2M</span></div>
+        <div class="frame"><iframe loading="lazy" src="https://www.instagram.com/reel/DZVjVOzjaEI/embed/" title="Exhibit F: Instagram reel, 2M views" allowfullscreen></iframe></div>
+        <div class="cap"><span>Instagram</span><span>Organic</span></div>
+      </div>
+      <div class="ex">
+        <div class="id"><span>Exhibit G</span><span class="views">1.5M</span></div>
+        <div class="frame"><iframe loading="lazy" src="https://www.instagram.com/reel/DYxJSprlEbR/embed/" title="Exhibit G: Instagram reel, 1.5M views" allowfullscreen></iframe></div>
+        <div class="cap"><span>Instagram</span><span>Organic</span></div>
+      </div>
+      <div class="ex">
+        <div class="id"><span>Exhibit H</span><span class="views">1.3M</span></div>
+        <div class="frame"><iframe loading="lazy" src="https://www.instagram.com/reel/DXAooFSgCBr/embed/" title="Exhibit H: Instagram reel, 1.3M views" allowfullscreen></iframe></div>
+        <div class="cap"><span>Instagram</span><span>Organic</span></div>
+      </div>
+      <div class="ex">
+        <div class="id"><span>Exhibit I</span><span class="views">1.2M</span></div>
+        <div class="frame"><iframe loading="lazy" src="https://www.tiktok.com/embed/v2/7639047240287341838" title="Exhibit I: TikTok video, 1.2M views" allowfullscreen></iframe></div>
+        <div class="cap"><span>TikTok</span><span>Organic</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="deel">
+    <div class="sec-head">
+      <span class="sec-no">SEC. 02</span>
+      <h2>Sponsored work: Deel</h2>
+    </div>
+    <div class="deel-copy">
+      <p><strong>Deel is a global payroll and HR platform, and a paying partner.</strong> They sponsor integrations inside the @everycorporatever format: at least one a week, written into skits about remote work, payroll, and contractor life where the product actually belongs.</p>
+      <p>The integrations run without pre-approval. That is not a loophole, it is trust the work earned. Deel saw enough on-brand, on-message content that they moved me to free-agent status: I write it, I film it, I post it, the campaign keeps performing.</p>
+      <p>The ad is the skit. There is no cutaway, no sponsor-voice tonal shift, nothing for the viewer to skip. That is what native integration means when it is done right, and it is what I bring to any brand or any in-house team.</p>
+    </div>
+    <div class="deel-grid">
+      <div class="ex">
+        <div class="id"><span>Exhibit J</span><span class="views">91.2K</span></div>
+        <div class="frame"><iframe loading="lazy" src="https://www.instagram.com/reel/DY7iqqZTdq7/embed/" title="Exhibit J: Deel sponsored reel, 91.2K views" allowfullscreen></iframe></div>
+        <div class="cap"><span>Instagram</span><span class="sp">Sponsored</span></div>
+      </div>
+      <div class="ex">
+        <div class="id"><span>Exhibit K</span><span class="views">71.2K</span></div>
+        <div class="frame"><iframe loading="lazy" src="https://www.instagram.com/reel/DW9_0jygEq3/embed/" title="Exhibit K: Deel sponsored reel, 71.2K views" allowfullscreen></iframe></div>
+        <div class="cap"><span>Instagram</span><span class="sp">Sponsored</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="scope">
+    <div class="sec-head">
+      <span class="sec-no">SEC. 03</span>
+      <h2>Scope of services</h2>
+    </div>
+    <p class="sec-note">Two ways to put this to work.</p>
+    <div class="scope">
+      <div class="scope-row">
+        <div class="scope-col">
+          <h3>UGC &amp; integrations</h3>
+          <div class="aud">For brands</div>
+          <ol>
+            <li>Sponsored integrations written natively into proven formats</li>
+            <li>Scriptwriting built on your product's actual use cases, not around them</li>
+            <li>Short-form video for Instagram, TikTok, and YouTube Shorts</li>
+            <li>Full production: scripting, filming, editing, posting</li>
+            <li>Performance reporting on every deliverable</li>
+          </ol>
+        </div>
+        <div class="scope-col">
+          <h3>Content strategy in-house</h3>
+          <div class="aud">For teams &middot; Full-time &middot; Remote or Chattanooga</div>
+          <ol>
+            <li>Content strategy built from what the data says, not what a trend report says</li>
+            <li>Social media management across platforms with one consistent voice</li>
+            <li>A repeatable short-form pipeline: ideation, scripts, production, publishing</li>
+            <li>Analytics and growth reporting leadership can actually read</li>
+            <li>Brand voice development with a creator's instincts and a strategist's discipline</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="sec-head">
+      <span class="sec-no">SEC. 04</span>
+      <h2>Personnel file</h2>
+    </div>
+    <div class="file">
+      <div class="photo">
+        [ Photo on file ]<br><br>Replace this div with an img tag. Best option: a still from your set, green screen office and all
+      </div>
+      <div class="bio">
+        <p>Husband. Father. Follower of Jesus. I make comedy about corporate life because I lived it, and I build content systems because that is how my brain works.</p>
+        <p>Before the account, I spent years inside the world I now write about: defense contracting, corporate management, an Army Reserve background, a Computer Science degree, and more meetings that could have been emails than I can count. The satire lands because it is sourced, not observed from the outside.</p>
+        <p>Everything on this page was made in a home office with a phone, a green screen, and CapCut. No team, no agency, no ad spend. That is the point.</p>
+        <div class="facts">
+          <div><b>Location</b><span>Chattanooga, Tennessee</span></div>
+          <div><b>Education</b><span>BS Computer Science, cum laude</span></div>
+          <div><b>Background</b><span>Defense contracting &middot; Army Reserve</span></div>
+          <div><b>Production stack</b><span>Phone &middot; green screen &middot; CapCut</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="routing">
+    <div class="sec-head">
+      <span class="sec-no">SEC. 05</span>
+      <h2>Routing</h2>
+    </div>
+    <p class="sec-note">Check the box that applies.</p>
+    <div class="routing">
+      <div class="route">
+        <span class="box" aria-hidden="true">&#10003;</span>
+        <div class="body">
+          <h3>I'm a brand</h3>
+          <p>Booking sponsored integrations and UGC now. Email me your product and timeline and I will come back with format ideas.</p>
+          <a class="btn primary" href="mailto:csbrooks5@gmail.com?subject=Brand%20inquiry%20for%20@everycorporatever">EMAIL ME</a>
+        </div>
+      </div>
+      <div class="route">
+        <span class="box" aria-hidden="true">&#10003;</span>
+        <div class="body">
+          <h3>I'm hiring full-time</h3>
+          <p>Open to content strategist, social media manager, and brand marketing roles. Remote or Chattanooga area. Resume and references ready.</p>
+          <a class="btn primary" href="Christian_Brooks_Resume.pdf">VIEW RESUME</a>
+          <a class="btn" href="https://www.linkedin.com/in/christian-brooks-625a58159/">LINKEDIN</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="endrule">End of document</div>
+    <div class="foot-links">
+      <span>&copy; 2026 Christian Brooks &middot; Chattanooga, TN</span>
+      <span class="set">
+        <a href="https://www.instagram.com/everycorporatever/">Instagram</a>
+        <a href="https://www.tiktok.com/@everycorporatever">TikTok</a>
+        <a href="https://www.youtube.com/@everycorporatever">YouTube</a>
+      </span>
+    </div>
+  </footer>
+
+</div>
+
+</body>
 </html>
