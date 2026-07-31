@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="7" fill="#5c6b4a"/>
+  <rect x="1.75" y="1.75" width="28.5" height="28.5" rx="5.5" fill="none" stroke="#c9a84c" stroke-width="1.1" opacity="0.85"/>
+  <text x="16" y="17" fill="#f7f4ee" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" letter-spacing="-1" text-anchor="middle" dominant-baseline="central">CB</text>
+</svg>
