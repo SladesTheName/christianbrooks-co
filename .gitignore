@@ -24,3 +24,7 @@ Thumbs.db
 
 # logs
 npm-debug.log*
+
+# local tooling state (personal / machine-specific)
+.claude/settings.local.json
+.remember/
