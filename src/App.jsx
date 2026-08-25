@@ -218,7 +218,7 @@ function Portfolio() {
               choices, this is for you.
             </p>
             <p className="brand-note">
-              Currently producing 60 reels a month in partnership with Deel.
+              Currently producing 90 reels a month in partnership with Deel.
             </p>
             <div className="brand-links">
               <a href="https://instagram.com/everycorporatever" target="_blank" rel="noopener noreferrer">Instagram</a>
