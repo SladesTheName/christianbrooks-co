@@ -1,20 +1,21 @@
 :root {
-  /* Retro palette: aged cream, burnt orange, mustard, avocado, dusty teal */
-  --bg: #f3ead8;
-  --bg-texture: radial-gradient(circle at 20% 10%, rgba(217, 160, 43, 0.1), transparent 45%),
-    radial-gradient(circle at 85% 90%, rgba(52, 121, 107, 0.09), transparent 40%);
-  --card: #fbf5e7;
-  --ink: #362a1e;
-  --ink-soft: #7d6b55;
-  --line: #e0d1b3;
-  --coral: #d4552a;
-  --coral-dark: #b04220;
-  --teal: #34796b;
-  --teal-dark: #275c51;
-  --gold: #d9a02b;
-  --plum: #7d8f4c;
-  --shadow: 0 2px 4px rgba(80, 58, 30, 0.07), 0 10px 24px rgba(80, 58, 30, 0.09);
-  --shadow-lift: 0 4px 8px rgba(80, 58, 30, 0.11), 0 16px 32px rgba(80, 58, 30, 0.13);
+  /* Vintage service-company palette: cream, deep navy, fire-engine red, gold */
+  --bg: #f4efe2;
+  --bg-texture: radial-gradient(circle at 20% 10%, rgba(200, 55, 45, 0.06), transparent 45%),
+    radial-gradient(circle at 85% 90%, rgba(34, 49, 72, 0.07), transparent 40%);
+  --card: #fcf8ec;
+  --ink: #223148;
+  --ink-soft: #66707f;
+  --line: #e1d8c2;
+  --coral: #c8372d;
+  --coral-dark: #a12b23;
+  --teal: #2f5788;
+  --teal-dark: #234368;
+  --gold: #e3b23c;
+  --plum: #4a7bb5;
+  --navy: #223148;
+  --shadow: 0 2px 4px rgba(34, 49, 72, 0.07), 0 10px 24px rgba(34, 49, 72, 0.09);
+  --shadow-lift: 0 4px 8px rgba(34, 49, 72, 0.11), 0 16px 32px rgba(34, 49, 72, 0.14);
   --radius: 20px;
   --font-display: 'Bricolage Grotesque', 'Instrument Sans', system-ui, sans-serif;
   --font-body: 'Instrument Sans', system-ui, -apple-system, sans-serif;
@@ -225,52 +226,62 @@ select {
   text-align: center;
 }
 
-.home-arc {
-  display: block;
-  margin: 0 auto 4px;
-  width: min(230px, 60vw);
+.hero-card {
+  background: var(--navy);
+  color: #f6f1e2;
+  border-radius: 24px;
+  box-shadow: var(--shadow-lift);
+  padding: 0;
+  overflow: hidden;
+  text-align: center;
 }
 
-.home-head .display {
+.hero-stripe {
+  height: 12px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--coral) 0 14px,
+    #f6f1e2 14px 28px
+  );
+}
+
+.hero-body {
+  padding: 26px 22px 28px;
+}
+
+.hero-est {
+  margin: 0 0 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #e3b23c;
+}
+
+.hero-body .display {
   font-size: clamp(38px, 10.5vw, 50px);
   text-transform: uppercase;
   letter-spacing: 0.005em;
+  color: #f6f1e2;
 }
 
-.home-head .display .accent {
-  color: var(--coral);
+.hero-body .display .accent {
+  color: #e3b23c;
 }
 
-.home-badge {
-  display: inline-block;
-  margin: 16px auto 0;
-  padding: 8px 16px;
-  border: 2px solid var(--ink);
+.hero-rule {
+  width: 64px;
+  height: 4px;
   border-radius: 999px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  background: var(--coral);
+  margin: 16px auto 14px;
 }
 
 .home-tag {
-  margin: 14px auto 0;
-  max-width: 300px;
-  color: var(--ink-soft);
-  font-size: 16px;
-}
-
-.home-stripes {
-  display: flex;
-  height: 8px;
-  border-radius: 999px;
-  overflow: hidden;
-  max-width: 200px;
   margin: 0 auto;
-}
-
-.home-stripes span {
-  flex: 1;
+  max-width: 300px;
+  color: #b9c2d1;
+  font-size: 15px;
 }
 
 .home-menu .btn {

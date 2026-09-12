@@ -119,30 +119,25 @@ export default function App() {
   return null
 }
 
-function RetroArc() {
-  return (
-    <svg className="home-arc" viewBox="0 0 200 104" aria-hidden="true">
-      <path d="M 10 102 A 90 90 0 0 1 190 102" fill="none" stroke="#d4552a" strokeWidth="17" />
-      <path d="M 32 102 A 68 68 0 0 1 168 102" fill="none" stroke="#d9a02b" strokeWidth="17" />
-      <path d="M 54 102 A 46 46 0 0 1 146 102" fill="none" stroke="#7d8f4c" strokeWidth="17" />
-      <path d="M 76 102 A 24 24 0 0 1 124 102" fill="none" stroke="#34796b" strokeWidth="17" />
-    </svg>
-  )
-}
-
 function HomeScreen({ hasPlayableSet, premium, onPlay, onPeople, onHowTo, onUpgrade, storageWarning }) {
   return (
     <div className="app">
       <div className="home">
         <div className="home-head">
-          <RetroArc />
-          <h1 className="display">
-            Who Do
-            <br />
-            You <span className="accent">Know?</span>
-          </h1>
-          <span className="home-badge">The real-life guessing game</span>
-          <p className="home-tag">Build a board out of people you actually know, then guess who.</p>
+          <div className="hero-card">
+            <div className="hero-stripe" />
+            <div className="hero-body">
+              <p className="hero-est">★ The Real-Life Guessing Game ★</p>
+              <h1 className="display">
+                Who Do
+                <br />
+                You <span className="accent">Know?</span>
+              </h1>
+              <div className="hero-rule" />
+              <p className="home-tag">Build a board out of people you actually know, then guess who.</p>
+            </div>
+            <div className="hero-stripe" />
+          </div>
         </div>
         <div className="stack home-menu">
           <button type="button" className="btn btn-primary" onClick={onPlay}>
@@ -160,21 +155,13 @@ function HomeScreen({ hasPlayableSet, premium, onPlay, onPeople, onHowTo, onUpgr
             </button>
           )}
         </div>
-        <div>
-          <div className="home-stripes" aria-hidden="true">
-            <span style={{ background: '#d4552a' }} />
-            <span style={{ background: '#d9a02b' }} />
-            <span style={{ background: '#7d8f4c' }} />
-            <span style={{ background: '#34796b' }} />
-          </div>
-          <p className="home-foot" style={{ marginTop: 14 }}>
-            {storageWarning
-              ? '⚠️ This device is out of storage space — recent changes may not be saved.'
-              : hasPlayableSet
-                ? 'Grab a friend, pass one phone, play.'
-                : 'Start by adding a few people you both know.'}
-          </p>
-        </div>
+        <p className="home-foot">
+          {storageWarning
+            ? '⚠️ This device is out of storage space — recent changes may not be saved.'
+            : hasPlayableSet
+              ? 'Grab a friend, pass one phone, play.'
+              : 'Start by adding a few people you both know.'}
+        </p>
       </div>
     </div>
   )
