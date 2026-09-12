@@ -1,4 +1,4 @@
-const AVATAR_COLORS = ['#c8372d', '#2f5788', '#e3b23c', '#4a7bb5', '#8a3b4a', '#5f7d6b', '#8c6d4a']
+const AVATAR_COLORS = ['#855148', '#4e8d7d', '#c99432', '#62717e', '#a98a66', '#6b6b47', '#8a5f6b']
 
 function colorFor(name) {
   let hash = 0

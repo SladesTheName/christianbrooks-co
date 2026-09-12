@@ -1,21 +1,26 @@
 :root {
-  /* Vintage service-company palette: cream, deep navy, fire-engine red, gold */
-  --bg: #f4efe2;
-  --bg-texture: radial-gradient(circle at 20% 10%, rgba(200, 55, 45, 0.06), transparent 45%),
-    radial-gradient(circle at 85% 90%, rgba(34, 49, 72, 0.07), transparent 40%);
-  --card: #fcf8ec;
-  --ink: #223148;
-  --ink-soft: #66707f;
-  --line: #e1d8c2;
-  --coral: #c8372d;
-  --coral-dark: #a12b23;
-  --teal: #2f5788;
-  --teal-dark: #234368;
-  --gold: #e3b23c;
-  --plum: #4a7bb5;
-  --navy: #223148;
-  --shadow: 0 2px 4px rgba(34, 49, 72, 0.07), 0 10px 24px rgba(34, 49, 72, 0.09);
-  --shadow-lift: 0 4px 8px rgba(34, 49, 72, 0.11), 0 16px 32px rgba(34, 49, 72, 0.14);
+  /* 1970s board-game palette: tan, brick, mustard, sage, bone, slate */
+  --tan: #c7ad8f;
+  --brick: #855148;
+  --mustard: #e2ac55;
+  --sage: #4e8d7d;
+  --bone: #ccc5a8;
+  --slate: #62717e;
+  --bg: var(--bone);
+  --bg-texture: radial-gradient(circle at 20% 10%, rgba(226, 172, 85, 0.12), transparent 45%),
+    radial-gradient(circle at 85% 90%, rgba(78, 141, 125, 0.1), transparent 40%);
+  --card: #f3edd9;
+  --ink: #3c3128;
+  --ink-soft: #766a58;
+  --line: #b3a988;
+  --coral: var(--brick);
+  --coral-dark: #6a3f38;
+  --teal: var(--sage);
+  --teal-dark: #3d7062;
+  --gold: var(--mustard);
+  --plum: var(--slate);
+  --shadow: 0 2px 4px rgba(60, 49, 40, 0.08), 0 10px 24px rgba(60, 49, 40, 0.1);
+  --shadow-lift: 0 4px 8px rgba(60, 49, 40, 0.12), 0 16px 32px rgba(60, 49, 40, 0.16);
   --radius: 20px;
   --font-display: 'Bricolage Grotesque', 'Instrument Sans', system-ui, sans-serif;
   --font-body: 'Instrument Sans', system-ui, -apple-system, sans-serif;
@@ -227,21 +232,26 @@ select {
 }
 
 .hero-card {
-  background: var(--navy);
-  color: #f6f1e2;
+  background: var(--brick);
+  color: var(--card);
   border-radius: 24px;
   box-shadow: var(--shadow-lift);
+  border: 4px solid var(--ink);
   padding: 0;
   overflow: hidden;
   text-align: center;
 }
 
 .hero-stripe {
-  height: 12px;
-  background: repeating-linear-gradient(
-    -45deg,
-    var(--coral) 0 14px,
-    #f6f1e2 14px 28px
+  height: 14px;
+  background: linear-gradient(
+    90deg,
+    var(--tan) 0 16.66%,
+    var(--mustard) 16.66% 33.33%,
+    var(--sage) 33.33% 50%,
+    var(--bone) 50% 66.66%,
+    var(--slate) 66.66% 83.33%,
+    var(--tan) 83.33% 100%
   );
 }
 
@@ -255,32 +265,33 @@ select {
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #e3b23c;
+  color: var(--mustard);
 }
 
 .hero-body .display {
   font-size: clamp(38px, 10.5vw, 50px);
   text-transform: uppercase;
   letter-spacing: 0.005em;
-  color: #f6f1e2;
+  color: var(--card);
+  text-shadow: 3px 3px 0 rgba(60, 49, 40, 0.35);
 }
 
 .hero-body .display .accent {
-  color: #e3b23c;
+  color: var(--mustard);
 }
 
 .hero-rule {
   width: 64px;
   height: 4px;
   border-radius: 999px;
-  background: var(--coral);
+  background: var(--mustard);
   margin: 16px auto 14px;
 }
 
 .home-tag {
   margin: 0 auto;
   max-width: 300px;
-  color: #b9c2d1;
+  color: #e3ccb9;
   font-size: 15px;
 }
 
@@ -428,7 +439,7 @@ select {
   font-size: 44px;
   font-weight: 800;
   color: var(--ink);
-  background: rgba(250, 244, 234, 0.55);
+  background: rgba(243, 237, 217, 0.55);
 }
 
 @keyframes flipOut {
@@ -482,7 +493,7 @@ select {
   width: 30px;
   height: 30px;
   border-radius: 10px;
-  background: rgba(255, 253, 248, 0.92);
+  background: rgba(243, 237, 217, 0.92);
   box-shadow: var(--shadow);
   font-size: 15px;
   display: grid;
