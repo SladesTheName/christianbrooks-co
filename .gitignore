@@ -28,3 +28,6 @@ npm-debug.log*
 # local tooling state (personal / machine-specific)
 .claude/settings.local.json
 .remember/
+.claude-flow/
+.claude/proven-config.json
+.claude/.proven-config-version
